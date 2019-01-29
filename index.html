@@ -63,10 +63,13 @@
       owner: 'yulilong',
       admin: ['yulilong'],
       labels: ['Gitalk'],
-      title: location.hash.substr(2),
-      id: location.hash.substr(2),      // Ensure uniqueness and length less than 50
+      title: location.hash.match(/#(.*)\?|$/)[1],
+      id: location.hash.match(/#(.*)\?|$/)[1],      // Ensure uniqueness and length less than 50
       distractionFreeMode: false // Facebook-like distraction free mode
     })
+    // var t = "#/bar/?id=_11-%e6%a0%87%e9%a2%9811";
+    // var reg4 = /#(.*)\?|$/
+    // t.match(reg4)
 
     // gitalk.render('gitalk-container')
   </script>
