@@ -24,29 +24,29 @@
       coverpage: true,
       onlyCover: true,
       formatUpdated: '{YYYY}-{MM}-{DD}',
-      plugins: [
-        function (hook, vm) {
-          hook.beforeEach(function (html) {
-            return html
-              + '<hr/>'
-              + '上次更新：{docsify-updated} '
-          })
-        },
-        function (hook, vm) {
-          hook.mounted(() => {
-            const div = Docsify.dom.create('div')
-            div.id = 'gitalk-container'
-            const main = Docsify.dom.getNode('#main')
-            div.style = `width: ${main.clientWidth}px; margin: 0 auto 20px;`
-            Docsify.dom.appendTo(Docsify.dom.find('.content'), div)
-            const script = Docsify.dom.create('script')
-            script.async = true
-            const ctx = `gitalk.render('gitalk-container')`
-            script.textContent = ctx
-            Docsify.dom.appendTo(Docsify.dom.body, script)
-          })
-        }
-      ]
+      // plugins: [
+      //   function (hook, vm) {
+      //     hook.beforeEach(function (html) {
+      //       return html
+      //         + '<hr/>'
+      //         + '上次更新：{docsify-updated} '
+      //     })
+      //   },
+      //   function (hook, vm) {
+      //     hook.mounted(() => {
+      //       const div = Docsify.dom.create('div')
+      //       div.id = 'gitalk-container'
+      //       const main = Docsify.dom.getNode('#main')
+      //       div.style = `width: ${main.clientWidth}px; margin: 0 auto 20px;`
+      //       Docsify.dom.appendTo(Docsify.dom.find('.content'), div)
+      //       const script = Docsify.dom.create('script')
+      //       script.async = true
+      //       const ctx = `gitalk.render('gitalk-container')`
+      //       script.textContent = ctx
+      //       Docsify.dom.appendTo(Docsify.dom.body, script)
+      //     })
+      //   }
+      // ]
     }
   </script>
   <!-- <script src="//unpkg.com/docsify/lib/docsify.min.js"></script> -->
@@ -63,11 +63,11 @@
     var gitalk = new Gitalk({
       clientID: '2eb19afceda708b27e64',
       clientSecret: '36aedb5a30321626a8631689fee5fafd5929f612',
-      repo: 'docsify',
+      repo: 'gitalk-comment',
       owner: 'yulilong',
       admin: ['yulilong'],
-      // title: location.hash.match(/#(.*)\?|$/)[1],
-      // id: location.hash.match(/#(.*)\?|$/)[1],      // Ensure uniqueness and length less than 50
+      title: location.hash.match(/#(.*)\?|$/)[1],
+      id: location.hash.match(/#(.*)\?|$/)[1],      // Ensure uniqueness and length less than 50
       distractionFreeMode: false // Facebook-like distraction free mode
     })
     // var t = "#/bar/?id=_11-%e6%a0%87%e9%a2%9811";
