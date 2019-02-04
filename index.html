@@ -24,6 +24,14 @@
       coverpage: true,
       onlyCover: true,
       formatUpdated: '{YYYY}-{MM}-{DD}',
+      search: {
+        maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+        paths: 'auto',
+        placeholder: '搜索',
+        noData: '找不到结果!',
+        // 搜索标题的最大程级, 1 - 6
+        depth: 6
+      },
       // plugins: [
       //   function (hook, vm) {
       //     hook.beforeEach(function (html) {
@@ -52,13 +60,14 @@
   <!-- <script src="//unpkg.com/docsify/lib/docsify.min.js"></script> -->
   <script src="./docsify.min.js"></script>
 
-  <!-- gittalk -->
-  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script> -->
+  <!-- gittalk组件 -->
   <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
-
-  <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
   <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
+
+  <!-- 搜索组件 -->
+  <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+
   <script>
     var gitalk = new Gitalk({
       clientID: '2eb19afceda708b27e64',
