@@ -60,9 +60,20 @@
               + '<hr/>'
               + '上次更新：{docsify-updated} '
           })
+            hook.mounted(function() {
+                // 初始化完成后调用 ，只调用一次，没有参数。
+
+                // 首页的导航菜单样式
+                if (window.location.hash === "#/") {
+                    var nav = document.querySelector('.app-nav');
+                    nav.style.backgroundColor = 'inherit';
+                    nav.style.border = 'none';
+                    nav.style.top = '15px';
+                }
+            })
         },
         EditOnGithubPlugin.create(
-          'https://github.com/yulilong/docsify',null, '在github上编辑'
+          'https://github.com/yulilong/docsify/',null, '在github上编辑'
         ),
       ]
     }
@@ -80,9 +91,6 @@
   <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
 
   
-  <script>
-      
-  </script>
 
   <script>
     var gitalk = new Gitalk({
